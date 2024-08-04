@@ -28,6 +28,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./giftlink-backend
 
     - name: Install JSHint
       run: npm install jshint --global
@@ -62,6 +63,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./giftlink-frontend
 
     - name: Run build
       run: |
