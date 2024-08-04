@@ -14,11 +14,14 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
+      with:
+        # Explicitly set the node version for the action if needed
+        node-version: '20'
 
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install
@@ -42,11 +45,14 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
+      with:
+        # Explicitly set the node version for the action if needed
+        node-version: '20'
 
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install
