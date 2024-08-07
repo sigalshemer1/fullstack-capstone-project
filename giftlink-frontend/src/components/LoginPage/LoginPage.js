@@ -5,9 +5,7 @@ import {urlConfig} from '../../config';
 import { useAppContext } from '../../context/AuthContext';
 //Step 1 - Task 3
 import { useNavigate } from 'react-router-dom';
-
 import './LoginPage.css';
-
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,14 +15,12 @@ function LoginPage() {
     const navigate = useNavigate();
     const bearerToken = sessionStorage.getItem('bearer-token');
     const { setIsLoggedIn } = useAppContext();
-
     //Step 1 - Task 6
     useEffect(() => {
         if (sessionStorage.getItem('auth-token')) {
           navigate('/app')
         }
       }, [navigate])
-
     const handleLogin = async (e) => {
         e.preventDefault();
         //api call
@@ -42,7 +38,6 @@ function LoginPage() {
             password: password,
           })
         });
-
         //Step 2: Task 1
         const json = await res.json();
         console.log('Json',json);
@@ -64,10 +59,7 @@ function LoginPage() {
             setIncorrect("");
           }, 2000);
         }
-
       }
-
-
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
@@ -95,7 +87,6 @@ function LoginPage() {
                                 value={password}
                                 onChange={(e) => {setPassword(e.target.value);setIncorrect("")}}
                             />
-
                             {/*Step 2: Task 6*/}
                             <span style={{color:'red',height:'.5cm',display:'block',fontStyle:'italic',fontSize:'12px'}}>{incorrect}</span>
                         </div>
@@ -109,5 +100,4 @@ function LoginPage() {
         </div>
     );
 }
-
 export default LoginPage;
